@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Currency Converter</title>
+    <!-- Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Modern Glass Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Animated Gradient */
+        .animated-bg {
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+            background-size: 300% 300%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom Input Styling */
+        .currency-input {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .currency-select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236b7280"%3E%3Cpath d="M8 13.6a.8.8 0 0 1-.6-.3L2.9 8.4a.8.8 0 0 1 0-1 .8.8 0 0 1 1.2 0L8 11.4l3.9-3.9a.8.8 0 0 1 1 0 .8.8 0 0 1 0 1L8.6 13.3a.8.8 0 0 1-.6.3z"/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 0.75rem;
+        }
+
+        /* Flipping Animation */
+        .flip-effect {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-effect:hover {
+            transform: rotateY(180deg);
+        }
+
+        /* Pulse Effect */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Glow Effect */
+        .glow {
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        }
+    </style>
+</head>
+<body class="min-h-screen animated-bg font-sans text-gray-800">
+    <div class="container mx-auto px-4 py-12">
+        <!-- App Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Advanced Currency Converter</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">Real-time exchange rates with historical trends</p>
+        </div>
+
+        <!-- Main Converter Card -->
+        <div class="max-w-3xl mx-auto glass-card rounded-2xl shadow-2xl overflow-hidden">
+            <div class="p-8 bg-white/95">
+                <!-- Currency Input Form -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <!-- Amount -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
+                        <div class="relative">
+                            <input type="number" id="amount" class="w-full currency-input px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="100">
+                        </div>
+                    </div>
+
+                    <!-- From Currency -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">From</label>
+                        <select id="fromCurrency" class="w-full currency-select px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 bg-white outline-none">
+                            <option value="USD">🇺🇸 USD - US Dollar</option>
+                            <option value="EUR">🇪🇺 EUR - Euro</option>
+                            <option value="GBP">🇬🇧 GBP - British Pound</option>
+                            <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                            <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                            <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                            <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                            <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                        </select>
+                    </div>
+
+                    <!-- To Currency -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">To</label>
+                        <select id="toCurrency" class="w-full currency-select px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 bg-white outline-none">
+                            <option value="EUR">🇪🇺 EUR - Euro</option>
+                            <option value="USD" selected>🇺🇸 USD - US Dollar</option>
+                            <option value="GBP">🇬🇧 GBP - British Pound</option>
+                            <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                            <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                            <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                            <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                            <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Convert Button -->
+                <div class="mb-8">
+                    <button id="convertBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium text-lg transition-colors duration-300 transform hover:scale-105 pulse">
+                        <i class="fas fa-exchange-alt mr-2"></i> Convert
+                    </button>
+                </div>
+
+                <!-- Result Display -->
+                <div id="resultContainer" class="hidden bg-blue-50 rounded-xl p-6 mb-8 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="mb-4 md:mb-0">
+                            <p class="text-sm text-gray-600 mb-1">Conversion Result</p>
+                            <p id="convertedAmount" class="text-4xl font-bold text-blue-600">0.00</p>
+                        </div>
+                        <div class="bg-blue-100 rounded-full px-4 py-2">
+                            <p id="exchangeRate" class="text-sm font-medium text-blue-800">1 USD = 0.91 EUR</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date Picker -->
+                <div class="mb-8">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Historical Data (Optional)</label>
+                    <div class="flex space-x-4">
+                        <input type="date" id="historyDate" class="flex-1 currency-input px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 outline-none">
+                        <button id="historyBtn" class="bg-gray-200 hover:bg-gray-300 px-4 rounded-lg transition">
+                            <i class="fas fa-history"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="p-8 bg-gray-50">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Exchange Rate History (30 Days)</h3>
+                <div class="bg-white rounded-xl p-4 shadow-sm">
+                    <canvas id="currencyChart" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Currency Table -->
+            <div class="p-8 bg-white">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Major Exchange Rates</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700 text-sm">
+                                <th class="py-3 px-4 text-left">Currency</th>
+                                <th class="py-3 px-4 text-left">Rate (1 USD)</th>
+                                <th class="py-3 px-4 text-left">24h Change</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rateTable" class="text-gray-600">
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">💵 USD</td>
+                                <td class="py-3 px-4">1.00</td>
+                                <td class="py-3 px-4 text-green-500">+0.00%</td>
+                            </tr>
+                            <!-- More rows will be added by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript will be loaded here -->
+    <script src="/static/script.js"></script> 
+</body>
+</html>
