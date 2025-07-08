@@ -1,6 +1,6 @@
 # 💱 Advanced Currency Converter
 
-
+![Homepage Preview](assets/apphomeinterface.png)
 
 > **Real-time global currency conversion with modern UI, historical charts, and exchange rate analysis.**
 
@@ -10,10 +10,10 @@
 
 **Advanced Currency Converter** is a full-stack web application that allows users to:
 
-- 🔁 Convert between major global currencies in real-time
-- 📊 View 30-day historical trends via interactive charts
-- 📈 See live exchange rate changes and comparison tables
-- 💡 Explore clean UI with animated effects and mobile responsiveness
+* 🔁 Convert between major global currencies in real-time
+* 📊 View 30-day historical trends via interactive charts
+* 📈 See live exchange rate changes and comparison tables
+* 💡 Explore clean UI with animated effects and mobile responsiveness
 
 Built with **Flask**, **Tailwind CSS**, **JavaScript**, and **Chart.js**, the project simulates real API behavior and is ready for integration with actual exchange rate APIs like `exchangerate-api.com`.
 
@@ -21,9 +21,9 @@ Built with **Flask**, **Tailwind CSS**, **JavaScript**, and **Chart.js**, the pr
 
 ## 🎥 Demo & Screenshots
 
-| Demo Video                               | GIF Preview |
-| ---------------------------------------- | ----------- |
-| [▶️ Watch Here](assets/appdemovideo.mp4) |             |
+| Demo Video                               | GIF Preview             |
+| ---------------------------------------- | ----------------------- |
+| [▶️ Watch Here](assets/appdemovideo.mp4) | ![](assets/appdemo.gif) |
 
 ---
 
@@ -43,27 +43,27 @@ Built with **Flask**, **Tailwind CSS**, **JavaScript**, and **Chart.js**, the pr
 
 ### 🔁 Currency Converter
 
-- Convert any amount between supported currencies (USD, EUR, GBP, INR, JPY, AUD, CAD, CNY)
-- Live rate display with result preview card
-- Dynamic exchange rate calculation using mock backend data (can be upgraded to real APIs)
+* Convert any amount between supported currencies (USD, EUR, GBP, INR, JPY, AUD, CAD, CNY)
+* Live rate display with result preview card
+* Dynamic exchange rate calculation using mock backend data (can be upgraded to real APIs)
 
 ### 📊 Historical Chart Viewer
 
-- See exchange trends over last 30 days
-- Interactive line chart using **Chart.js**
-- Pick date to simulate historical rate retrieval
+* See exchange trends over last 30 days
+* Interactive line chart using **Chart.js**
+* Pick date to simulate historical rate retrieval
 
 ### 📋 Live Rates Table
 
-- Lists major currency rates compared to USD
-- Simulated 24-hour percentage change (with emoji flags)
+* Lists major currency rates compared to USD
+* Simulated 24-hour percentage change (with emoji flags)
 
 ### 🧊 Stunning UI/UX
 
-- Glassmorphism card design
-- Animated background gradients
-- Flip + pulse interactions
-- Responsive layout for desktop + mobile
+* Glassmorphism card design
+* Animated background gradients
+* Flip + pulse interactions
+* Responsive layout for desktop + mobile
 
 ---
 
@@ -97,10 +97,10 @@ AdvancedCurrencyConverter
 
 ## 🔄 Future Enhancements
 
-- 🌐 Integrate real-time exchange APIs like `exchangerate-api.com`
-- 🌍 Add more currency support with flags and info cards
-- 💹 Save user search history and graph preferences
-- 📱 Convert to Progressive Web App (PWA) for offline use
+* 🌐 Integrate real-time exchange APIs like `exchangerate-api.com`
+* 🌍 Add more currency support with flags and info cards
+* 💹 Save user search history and graph preferences
+* 📱 Convert to Progressive Web App (PWA) for offline use
 
 ---
 
@@ -109,7 +109,7 @@ AdvancedCurrencyConverter
 1. **Clone the Repo**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AdvancedCurrencyConverter.git
+git clone https://github.com/Aayushinit/AdvancedCurrencyConverter.git
 cd AdvancedCurrencyConverter
 ```
 
@@ -150,4 +150,3 @@ If you found this helpful, please ⭐ the repo to help others discover it!
 This project is under the [MIT License](LICENSE)
 
 > Assets (GIFs, videos, screenshots) belong to the creator and are intended for showcasing this specific app.
-
