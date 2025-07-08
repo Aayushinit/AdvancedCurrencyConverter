@@ -23,7 +23,7 @@ Built with **Flask**, **Tailwind CSS**, **JavaScript**, and **Chart.js**, the pr
 
 | Demo Video                               | GIF Preview             |
 | ---------------------------------------- | ----------------------- |
-| [▶️ Watch Here](assets/appdemovideo.mp4) | ![](assets/appdemo.gif) |
+| [▶️ Watch Here](assets/appdemovideo.mp4) | ![appdemo](assets/appdemo.gif) |
 
 ---
 
